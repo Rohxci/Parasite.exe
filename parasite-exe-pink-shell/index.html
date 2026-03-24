@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PARASITE.EXE — Pink Shell</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-card">
+      <div class="boot-title">MimiOS ♡</div>
+      <div class="boot-subtitle">soft desktop environment</div>
+      <button id="enter-btn" class="main-button">Enter</button>
+    </div>
+  </div>
+
+  <div id="game" class="game hidden">
+    <div id="topbar" class="topbar">
+      <div class="brand">MimiOS ♡</div>
+      <div class="status-wrap">
+        <span class="status-label">System Mood:</span>
+        <span id="mood-text" class="mood-text">Lovely</span>
+      </div>
+    </div>
+
+    <div id="desktop" class="desktop">
+      <div class="wallpaper-overlay"></div>
+
+      <div class="icon-grid">
+        <button class="desktop-icon" data-window="notes">
+          <span class="icon-symbol">📝</span>
+          <span class="icon-label">Notes</span>
+        </button>
+
+        <button class="desktop-icon" data-window="gallery">
+          <span class="icon-symbol">🖼️</span>
+          <span class="icon-label">Gallery</span>
+        </button>
+
+        <button class="desktop-icon" data-window="music">
+          <span class="icon-symbol">🎵</span>
+          <span class="icon-label">Music</span>
+        </button>
+
+        <button class="desktop-icon" data-window="mail">
+          <span class="icon-symbol">💌</span>
+          <span class="icon-label">Mail</span>
+        </button>
+
+        <button class="desktop-icon" data-window="diary">
+          <span class="icon-symbol">📔</span>
+          <span class="icon-label">Diary</span>
+        </button>
+
+        <button class="desktop-icon" data-window="toybox">
+          <span class="icon-symbol">🧸</span>
+          <span class="icon-label">ToyBox</span>
+        </button>
+
+        <button class="desktop-icon" data-window="terminal">
+          <span class="icon-symbol">💻</span>
+          <span class="icon-label">Terminal</span>
+        </button>
+
+        <button class="desktop-icon hidden" id="secret-icon" data-window="core">
+          <span class="icon-symbol">🗃️</span>
+          <span class="icon-label">Core</span>
+        </button>
+      </div>
+
+      <div id="mimi-assistant" class="mimi-assistant">
+        <div class="mimi-face" id="mimi-face">◕‿◕</div>
+        <div class="mimi-bubble">
+          <div class="mimi-name">Mimi</div>
+          <div id="mimi-text" class="mimi-text">welcome back ♡</div>
+        </div>
+      </div>
+
+      <div id="window-notes" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>Notes</span>
+          <button class="close-btn" data-close="window-notes">×</button>
+        </div>
+        <div class="window-body">
+          <p>To-do for today ♡</p>
+          <ul>
+            <li>make everything pretty</li>
+            <li>organize soft files</li>
+            <li>remember the little password: <strong>STAR</strong></li>
+            <li>do not open anything that looks wrong ♡</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="window-gallery" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>Gallery</span>
+          <button class="close-btn" data-close="window-gallery">×</button>
+        </div>
+        <div class="window-body">
+          <p>Favorite memories ♡</p>
+          <div class="gallery-grid">
+            <div class="gallery-card">clouds</div>
+            <div class="gallery-card">plush room</div>
+            <div class="gallery-card" id="special-gallery-card">mimi_smile.png</div>
+            <div class="gallery-card">stars</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="window-music" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>Music</span>
+          <button class="close-btn" data-close="window-music">×</button>
+        </div>
+        <div class="window-body">
+          <p>Playlist</p>
+          <ul>
+            <li>soft_dream_loop.mp3</li>
+            <li>candy_sky.wav</li>
+            <li>stay_here_forever.mp3</li>
+          </ul>
+          <button id="music-btn" class="secondary-button">Play soft sound</button>
+        </div>
+      </div>
+
+      <div id="window-mail" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>Mail</span>
+          <button class="close-btn" data-close="window-mail">×</button>
+        </div>
+        <div class="window-body">
+          <div class="mail-item">
+            <strong>From:</strong> Mimi<br />
+            <strong>Subject:</strong> welcome ♡
+            <p>thank you for visiting again. please stay a little longer.</p>
+          </div>
+          <div class="mail-item">
+            <strong>From:</strong> system<br />
+            <strong>Subject:</strong> minor visual issue
+            <p>some colors may shift slightly. this is normal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="window-diary" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>Diary</span>
+          <button class="close-btn" data-close="window-diary">×</button>
+        </div>
+        <div class="window-body">
+          <p><strong>entry_01</strong></p>
+          <p>this place was built to feel safe.</p>
+          <p>pink lowers the guard.</p>
+          <p id="diary-shift-line">it helps them stay.</p>
+        </div>
+      </div>
+
+      <div id="window-toybox" class="window hidden">
+        <div class="window-header drag-handle">
+          <span>ToyBox</span>
+          <button class="close-btn" data-close="window-toybox">×</button>
+        </div>
+        <div class="window-body">
+          <p>Repeat the sequence Mimi shows you.</p>
+          <div class="toy-grid">
+            <button class="toy-btn" data-tone="1">♡</button>
+            <button class="toy-btn" data-tone="2">★</button>
+            <button class="toy-btn" data-tone="3">☁</button>
+            <button class="toy-btn" data-tone="4">✿</button>
+          </div>
+          <div class="toy-controls">
+            <button id="start-sequence-btn" class="secondary-button">Start sequence</button>
+          </div>
+          <div id="toy-status" class="secret-result">Ready.</div>
+        </div>
+      </div>
+
+      <div id="window-terminal" class="window hidden terminal-window">
+        <div class="window-header drag-handle">
+          <span>Terminal</span>
+          <button class="close-btn" data-close="window-terminal">×</button>
+        </div>
+        <div class="window-body terminal-body">
+          <div id="terminal-log" class="terminal-log">
+            <div>> MimiOS terminal ready.</div>
+            <div>> type <strong>help</strong></div>
+          </div>
+          <div class="terminal-input-row">
+            <span>&gt;</span>
+            <input id="terminal-input" class="terminal-input" type="text" autocomplete="off" />
+            <button id="terminal-send" class="secondary-button">Run</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="window-core" class="window hidden secret-window">
+        <div class="window-header drag-handle">
+          <span>Core Access</span>
+          <button class="close-btn" data-close="window-core">×</button>
+        </div>
+        <div class="window-body">
+          <p>enter password:</p>
+          <input id="secret-password" class="secret-input" type="text" placeholder="Type password..." />
+          <button id="unlock-secret-btn" class="secondary-button">Unlock</button>
+          <div id="secret-result" class="secret-result"></div>
+          <div id="ending-buttons" class="ending-buttons hidden">
+            <button class="main-button ending-btn" data-ending="purge">PURGE</button>
+            <button class="main-button ending-btn" data-ending="contain">CONTAIN</button>
+            <button class="main-button ending-btn" data-ending="accept">ACCEPT</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="terminal-overlay" class="terminal-overlay hidden">
+        <div class="terminal-box">
+          <div class="terminal-title">SYSTEM EVENT</div>
+          <div id="terminal-text" class="terminal-text">YOU OPENED ME</div>
+          <button id="terminal-close" class="main-button">Continue</button>
+        </div>
+      </div>
+
+      <div id="flash-jumpscare" class="flash-jumpscare hidden">
+        <div class="jumpscare-face">◉_◉</div>
+      </div>
+
+      <div id="ending-screen" class="ending-screen hidden">
+        <div class="ending-card">
+          <div id="ending-title" class="ending-title">ENDING</div>
+          <div id="ending-desc" class="ending-desc"></div>
+          <button id="restart-btn" class="main-button">Restart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
